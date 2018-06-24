@@ -1,0 +1,177 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Book</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Free HTML5 Website Template by freehtml5.co" />
+	<meta name="keywords" content="free website templates, free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
+	
+
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400" rel="stylesheet">
+	
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="/static/css/animate.css">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="/static/css/icomoon.css">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="/static/css/bootstrap.css">
+
+	<!-- Magnific Popup -->
+	<link rel="stylesheet" href="/static/css/magnific-popup.css">
+
+	<!-- Owl Carousel  -->
+	<link rel="stylesheet" href="/static/css/owl.carousel.min.css">
+	<link rel="stylesheet" href="/static/css/owl.theme.default.min.css">
+
+	<!-- Flexslider  -->
+	<link rel="stylesheet" href="/static/css/flexslider.css">
+
+	<!-- Pricing -->
+	<link rel="stylesheet" href="/static/css/pricing.css">
+
+	<!-- Theme style  -->
+	<link rel="stylesheet" href="/static/css/style.css">
+
+
+	<!-- Modernizr JS -->
+	<script src="/static/js/modernizr-2.6.2.min.js"></script>
+	<!-- FOR IE9 below -->
+	<!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+
+
+	</head>
+	<body>
+		
+	<div class="fh5co-loader"></div>
+<div id="page">
+	<nav class="fh5co-nav" role="navigation">
+		<div class="top-menu">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-2">
+						<div id="fh5co-logo"><a href="index"><i class="icon-study"></i>Book<span>.</span></a></div>
+					</div>
+					<div class="col-xs-10 text-right menu-1">
+						
+						<ul>
+
+							<li class="active"><a href="/index">回到首页</a></li>				
+							<li class="has-dropdown">
+	
+							</li>
+						</ul>
+					</div>
+					<form action="/search_done" method="post">
+						{% csrf_token %}
+                      😀继续查找： <input type="text" name="book_title" placeholder="search" />
+                      <input type="submit"/>
+                    </form> 
+				</div>
+				
+			</div>
+		</div>
+	</nav>
+</div>
+	
+	
+	<!-- 图书介绍 -->
+	<div id="fh5co-course">
+		<div class="container">
+			<div class="row animate-box">
+				<div class="col-md-6 col-md-offset-3 text-center fh5co-heading">
+					<h2>查找的图书</h2>
+					<p>巴拉巴拉。。。。。。。。</p>
+				</div>
+			</div>
+			<div class="row">
+			{% for i in book_list %}
+				<div class="col-md-6 animate-box">
+					<div class="course">
+						<img height="405" width="150" class="course-img" style="background-image: url({{i.pic}});">
+						</a>
+						<div class="desc">
+							<h3>
+								<a href="#">{{i.title}}</a>
+								&nbsp;&nbsp;&nbsp;
+								<a href="/del_book?id={{ i.id }}">delete</a>
+							</h3>
+							<p>
+								<span><h4><i><a href="/rating_sort">{{ i.rating}}</a></i></h4></span>
+							</p>
+							<p>{{ i.author }}</p>
+							<span><p>{{ i.info }}</p></span>
+						</div>
+					</div>
+				</div>
+			{% endfor %}
+<!-- 			<div class="col-md-6 animate-box">
+					<div class="course">
+						<a href="#" class="course-img" style="background-image: url(/static/images/project-2.jpg);">
+						</a>
+						<div class="desc">
+							<h3><a href="#">书名</a></h3>
+							<p>作者</p>
+							<span><p>图书简介：</p></span>
+							<h3><a href="">删除</a></h3>
+							<h3><a href="edit_book.html">修改</a></h3>
+
+						</div>
+					</div>
+				</div> 
+			</div>
+		</div>
+	</div> -->
+	
+	<div class="gototop js-top">
+		<a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
+	</div>
+
+	<!-- jQuery -->
+	<script src="/static/js/jquery.min.js"></script>
+	<!-- jQuery Easing -->
+	<script src="/static/js/jquery.easing.1.3.js"></script>
+	<!-- Bootstrap -->
+	<script src="/static/js/bootstrap.min.js"></script>
+	<!-- Waypoints -->
+	<script src="/static/js/jquery.waypoints.min.js"></script>
+	<!-- Stellar Parallax -->
+	<script src="/static/js/jquery.stellar.min.js"></script>
+	<!-- Carousel -->
+	<script src="/static/js/owl.carousel.min.js"></script>
+	<!-- Flexslider -->
+	<script src="/static/js/jquery.flexslider-min.js"></script>
+	<!-- countTo -->
+	<script src="/static/js/jquery.countTo.js"></script>
+	<!-- Magnific Popup -->
+	<script src="/static/js/jquery.magnific-popup.min.js"></script>
+	<script src="/static/js/magnific-popup-options.js"></script>
+	<!-- Count Down -->
+	<script src="/static/js/simplyCountdown.js"></script>
+	<!-- Main -->
+	<script src="/static/js/main.js"></script>
+	<script>
+    var d = new Date(new Date().getTime() + 1000 * 120 * 120 * 2000);
+
+    // default example
+    simplyCountdown('.simply-countdown-one', {
+        year: d.getFullYear(),
+        month: d.getMonth() + 1,
+        day: d.getDate()
+    });
+
+    //jQuery example
+    $('#simply-countdown-losange').simplyCountdown({
+        year: d.getFullYear(),
+        month: d.getMonth() + 1,
+        day: d.getDate(),
+        enableUtc: false
+    });
+	</script>
+	</body>
+</html>
+
