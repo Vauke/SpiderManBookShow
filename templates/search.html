@@ -3,7 +3,7 @@
 	<head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Book</title>
+	<title>Search Result</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Free HTML5 Website Template by freehtml5.co" />
 	<meta name="keywords" content="free website templates, free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
@@ -66,9 +66,9 @@
 							</li>
 						</ul>
 					</div>
-					<form action="/search_done" method="post">
+					<form action="/search_book" method="post">
 						{% csrf_token %}
-                      😀继续查找： <input type="text" name="book_title" placeholder="search" />
+                      😀继续查找： <input type="text" name="title" placeholder="search..." />
                       <input type="submit"/>
                     </form> 
 				</div>
@@ -89,19 +89,19 @@
 				</div>
 			</div>
 			<div class="row">
-			{% for i in book_list %}
+			{% for i in search_rst %}
 				<div class="col-md-6 animate-box">
 					<div class="course">
-						<img height="405" width="150" class="course-img" style="background-image: url({{i.pic}});">
+						<img height="405" width="150" class="course-img" style="background-image: url(/static/uploads/{{i.pic }});">
 						</a>
 						<div class="desc">
 							<h3>
-								<a href="#">{{i.title}}</a>
+								<a href="/edit_book?book_id={{ i.id }}">{{i.title}}</a>
 								&nbsp;&nbsp;&nbsp;
-								<a href="/del_book?id={{ i.id }}">delete</a>
+								<a href="/del_book?id={{ i.id }}">删除本书</a>
 							</h3>
 							<p>
-								<span><h4><i><a href="/rating_sort">{{ i.rating}}</a></i></h4></span>
+								<span><h4><i><a href="/rating_sort">{{ i.rating }}</a></i></h4></span>
 							</p>
 							<p>{{ i.author }}</p>
 							<span><p>{{ i.info }}</p></span>

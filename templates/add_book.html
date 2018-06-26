@@ -11,7 +11,7 @@
 	<head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Add_Book</title>
+	<title>Add Book</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Free HTML5 Website Template by freehtml5.co" />
 	<meta name="keywords" content="free website templates, free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
@@ -67,35 +67,32 @@
 		   	<li>
 		   		<div class="container">
 			   			<div class="col-md-8 row-md-9 text-center slider-text">
-			   						<form action="/add_done" method="post">							
+			   						<form action="/add_done" method="post" enctype="multipart/form-data">							
 								<table width="900" border="0" align="left" cellpadding="0" cellspacing="0">
-									
-								
 									{% csrf_token %}
-			
-									<tr><td><h2 ">&nbsp;封<span  style="color:rgb(255,255,255,0);">封</span>面：</h2>
-										<input type="file" name="book_pic" value=""/>
+									<tr><td><h2 ">&nbsp;封<span  style="color:rgb(255,255,255,0);">&nbsp;&nbsp;&nbsp;&nbsp;</span>面：</h2>
+										<input type="file" name="pic" value=""/>
 									</td></tr><br/>
 									
-									<tr><td><h2>&nbsp;书<span style="color:rgb(255,255,255,0);">名</span>名：</h2>
-										<input type="text" name="book_title" value=""/>
+									<tr><td><h2>&nbsp;书<span style="color:rgb(255,255,255,0);">&nbsp;&nbsp;&nbsp;&nbsp;</span>名：</h2>
+										<input type="text" name="title" value=""/>
 									</td></tr>
 									
-									<tr><td><h2 >&nbsp;作<span style="color:rgb(255,255,255,0);">者</span>者：</h2>
-										<input type="text" name="book_author" value=""/>
+									<tr><td><h2 >&nbsp;作<span style="color:rgb(255,255,255,0);">&nbsp;&nbsp;&nbsp;&nbsp;</span>者：</h2>
+										<input type="text" name="author" value=""/>
 									</td></tr>
 
-									<tr><td><h2 >&nbsp;评<span style="color:rgb(255,255,255,0);">分</span>分：</h2>
-										<input type="text" name="book_rating" value=""/>
+									<tr><td><h2 >&nbsp;评<span style="color:rgb(255,255,255,0);">&nbsp;&nbsp;&nbsp;&nbsp;</span>分：</h2>
+										<input type="text" name="rating" value=""/>
 									</td></tr>
 
-									<tr><td><h2 >&nbsp;分<span style="color:rgb(255,255,255,0);">类</span>类：</h2>
-										<input type="text" name="book_cate" value=""/>
+									<tr><td><h2 >&nbsp;分<span style="color:rgb(255,255,255,0);">&nbsp;&nbsp;&nbsp;&nbsp;</span>类：</h2>
+										<input type="text" name="cate" value=""/>
 									</td></tr>
 									
 
 									<tr><td><h2 >作品简介：</h2>
-									<p><textarea name="book_info" rows="5" cols="30"></textarea></p>
+									<p><textarea name="info" rows="5" cols="30"></textarea></p>
 									<td><span><input type="submit" value="确认添加"/></span></td>
 									</td></tr>
 									<<!-- tr><td>

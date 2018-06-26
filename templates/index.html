@@ -80,7 +80,7 @@
 			   			<div class="col-md-8 col-md-offset-2 text-center slider-text">
 			   				<div class="slider-text-inner">
 			   					<h1>喵喵喵喵喵喵喵喵喵</h1>
-									<p><a class="btn btn-primary btn-lg btn-learn" href="#">Start Rearning Now!</a></p>
+									<p><a class="btn btn-primary btn-lg btn-learn" href="#">Start Learning Now!</a></p>
 			   				</div>
 			   			</div>
 			   		</div>
@@ -93,7 +93,7 @@
 			   			<div class="col-md-8 col-md-offset-2 text-center slider-text">
 			   				<div class="slider-text-inner">
 			   					<h1>喵喵喵喵喵喵喵喵喵</h1>
-									<p><a class="btn btn-primary btn-lg btn-learn" href="#">Start Rearning Now!</a></p>
+									<p><a class="btn btn-primary btn-lg btn-learn" href="#">Start Learning Now!</a></p>
 			   				</div>
 			   			</div>
 			   		</div>
@@ -106,7 +106,7 @@
 			   			<div class="col-md-8 col-md-offset-2 text-center slider-text">
 			   				<div class="slider-text-inner">
 			   					<h1>喵喵喵喵喵喵喵喵喵</h1>
-									<p><a class="btn btn-primary btn-lg btn-learn" href="#">Start Rearning Now!</a></p>
+									<p><a class="btn btn-primary btn-lg btn-learn" href="#">Start Learning Now!</a></p>
 			   				</div>
 			   			</div>
 			   		</div>
@@ -119,7 +119,7 @@
 			   			<div class="col-md-8 col-md-offset-2 text-center slider-text">
 			   				<div class="slider-text-inner">
 			   					<h1>喵喵喵喵喵喵喵喵喵</h1>
-									<p><a class="btn btn-primary btn-lg btn-learn" href="#">Start Rearning Now!</a></p>
+									<p><a class="btn btn-primary btn-lg btn-learn" href="#">Start Learning Now!</a></p>
 			   				</div>
 			   			</div>
 			   		</div>
@@ -234,9 +234,9 @@
     <div class="row animate-box">
 				<div class="col-md-6 col-md-offset-3 text-center fh5co-heading">
 					<h2>图书 搜索</h2>
-					<form action="/search_done" method="post">
+					<form action="/search_book" method="post">
 						{% csrf_token %}
-                      😀输入书名查找书籍： <input type="text" name="book_title" placeholder="search" />
+                      😀输入书名查找书籍： <input type="text" name="title" placeholder="search..." />
                       <input type="submit"/>
                     </form> 
                     <br/><br/>
@@ -246,7 +246,7 @@
 				</div>
 	</div>
 <div id="fh5co-gallery" class="fh5co-bg-section">
-		<a href="/add_books">
+		<a href="/add_book">
 		<div class="row text-center">
 			<h2><span>添加图书</span></h2>
 		</div></a>
@@ -264,26 +264,18 @@
 				</div>
 			</div>
 			<div class="row">
-				    {% if book_list %}
-				    	<script>
-     					var t = $('#1').offset().top;
-    					$(window).scrollTop(t);
-    					</script>
-    				{% endif %}
 			{% for i in book_list %}
 				<div class="col-md-6 animate-box">
 					<div class="course">
-						<img height="405" width="150" class="course-img" style="background-image: url({{i.pic}});">
+						<img height="405" width="150" class="course-img" style="background-image: url(/static/uploads/{{i.pic }});">
 						</a>
 						<div class="desc">
 							<h3>
-								<a href="/edit_books?id={{ i.id }}">{{i.title}}</a>
+								<a href="/edit_book?book_id={{ i.id }}">{{i.title}}</a>
 								&nbsp;&nbsp;&nbsp;
-								<i><a href="/del_book?id={{ i.id }}">删除本书</a></i>
+								<i><a href="/del_book?book_id={{ i.id }}">删除本书</a></i>
 							</h3>
 							<p>
-								<!-- <script>     var t = $('#book').offset().top;
-    $(window).scrollTop(t);</script> -->
 								<span><h4><i><a href="/rating_sort">{{ i.rating }}</a></i></h4></span>
 							</p>
 							<p>{{ i.author }}</p>

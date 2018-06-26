@@ -57,12 +57,16 @@
 			{% for i in condition_list %}
 				<div class="col-md-6 animate-box">
 					<div class="course">
-						<img height="405" width="150" class="course-img" style="background-image: url({{i.pic}});">
+						<img height="405" width="150" class="course-img" style="background-image: url(/static/uploads/{{i.pic }});">
 						</a>
 						<div class="desc">
-							<h3><a href="#">{{i.title}}</a></h3>
+							<h3>
+								<a href="/edit_books?book_id={{ i.id }}">{{i.title}}</a>
+								&nbsp;&nbsp;&nbsp;
+								<i><a href="/del_book?book_id={{ i.id }}">删除本书</a></i>
+							</h3>
 							<p>
-								<span><h4><i>{{ i.rating}}</i></h4></span>
+								<span><h4><i><a href="/rating_sort">{{ i.rating }}</a></i></h4></span>
 							</p>
 							<p>{{ i.author }}</p>
 							<span><p>{{ i.info }}</p></span>

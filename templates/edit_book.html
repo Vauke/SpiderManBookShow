@@ -3,7 +3,7 @@
 	<head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>edit_Book</title>
+	<title>Edit Book</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Free HTML5 Website Template by freehtml5.co" />
 	<meta name="keywords" content="free website templates, free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
@@ -62,9 +62,9 @@
 						<div class="desc">
 							<form action="/edit_done" method="post">
 								{% csrf_token %}
-							<h3><input type="text" name="book_name"value="input book_name " /><br/><br/></h3>
-							<h3><input type="text" name="book_author"value="input book_author " /><br/><br/></h3>
-							<h3><textarea rows="20" cols="20" id="book_info"></textarea><br/></h3>
+							<h3><input type="text" name="title" placeholder="input book_name..." /><br/><br/></h3>
+							<h3><input type="text" name="author" placeholder="input book_author..." /><br/><br/></h3>
+							<h3><textarea rows="20" cols="20" name="info" placeholder="input book_info..."></textarea><br/></h3>
 							<input type="submit" value="确认修改"/>
 							</form>
 						</div>
