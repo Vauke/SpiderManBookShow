@@ -5,7 +5,7 @@
 #
 # Author        : Vauke
 # Create        : 2018-06-24 21:16:50
-# Last Modified : 2018-06-27 00:47:42
+# Last Modified : 2018-06-27 01:10:52
 
 from django.shortcuts import render, render_to_response
 from django.http import HttpResponse
@@ -23,6 +23,8 @@ def read_json():
         rst = r.read()
     if len(rst):
         book_list = json.loads(rst)
+    else:
+        book_list = []
     return book_list
 
 def write_json(book_list):
@@ -75,9 +77,10 @@ def del_book(request):
             book_list.remove(i)
             filename = '%s/%s'%(uploads, i['pic'])
             #print('---filename', filename)
-            # 如果不是目录, 删除对应文件
+            # 如果不是目录且存在时, 删除对应文件
             if not os.path.isdir(filename):
-                os.remove(filename)
+                if os.path.exists(filename):
+                    os.remove(filename)
 
     write_json(book_list)
 
@@ -103,6 +106,7 @@ def add_done(request):
     context = {}
     book_list = read_json()
     book = {}
+    name = ''
 
     # 使用request.FILES.get()来获取上传的文件
     pic = request.FILES.get('pic')
@@ -113,7 +117,9 @@ def add_done(request):
     info = request.POST['info']
     cate = request.POST['cate']
 
-    write_pic(pic)
+    if pic:
+        write_pic(pic)
+        name = pic.name
 #    if not os.path.isdir(uploads):
 #        os.mkdir(uploads)
 #    else:
@@ -125,15 +131,18 @@ def add_done(request):
 #        
 #    #print(uploads)
 
+    if not rating.isdigit():
+        rating = '6.6'
+
     if len(book_list):
         book_id = book_list[-1]['id'] + 1
     else:
         book_id = 1
 
     book['id'] = book_id
-    book['pic'] = pic.name
+    book['pic'] = name
     book['title'] = title
-    book['rating'] = rating
+    book['rating'] = eval(rating)
     book['author'] = author
     book['info'] = info
     book['cate'] = cate
