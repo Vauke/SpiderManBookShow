@@ -5,7 +5,7 @@
 #
 # Author        : Vauke
 # Create        : 2018-06-24 21:16:50
-# Last Modified : 2018-06-27 00:36:18
+# Last Modified : 2018-06-27 00:47:42
 
 from django.shortcuts import render, render_to_response
 from django.http import HttpResponse
@@ -180,10 +180,11 @@ def search_book(request):
     search_rst = []
 
     for i in book_list:
-        info = re.findall(r'.*?'+'%s.*?', i['title'])
-        print(info)
+        info = re.findall(r'.*?'+'%s.*?'%title, i['title'])
+        #print(info)
         #print('.*?'+title+'.*?')
-        if i['title'] == title:
+        #if i['title'] == title:
+        if len(info):
             search_rst.append(i)
 
     context['search_rst'] = search_rst
