@@ -126,10 +126,14 @@ STATICFILES_DIRS = (
     ("js",    os.path.join(STATIC_ROOT, 'js').replace('\\', '/')),
     ("fonts", os.path.join(STATIC_ROOT, 'fonts').replace('\\', '/')),
     ("sass",  os.path.join(STATIC_ROOT, 'sass').replace('\\', '/')),
+    ("uploads",  os.path.join(STATIC_ROOT, 'uploads').replace('\\', '/')),
 
 )
-print(STATICFILES_DIRS)
+# print(STATICFILES_DIRS)
 
-MEDIA_URL = '/uploads/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
-print(MEDIA_URL)
+# MEDIA_URL = '/uploads/'
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
+# MEDIAFILES_DIRS = (
+#     os.path.join(BASE_DIR, 'uploads'),
+# )
+# print(MEDIA_ROOT)

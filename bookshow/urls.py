@@ -21,5 +21,13 @@ from . import views
 urlpatterns = [
     # path('admin/', admin.site.urls),
     # url(r'^$', views.index)
-    url(r'^$', views.index)
+    url(r'^$', views.index),
+    url(r'^rating_sort$', views.rating_sort),
+    url(r'^del_book$', views.del_book),
+    url(r'^cate$', views.cate),
+    url(r'^add_book$', views.add_book),
+    url(r'^add_done$', views.add_done),
+    url(r'^edit_book$', views.edit_book),
+    url(r'^edit_done$', views.edit_done),
+    url(r'^search_book$', views.search_book),
 ]
